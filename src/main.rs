@@ -1,4 +1,4 @@
-use object_oriented::{Button, Screen, SelectBox};
+use object_oriented::{Button, Post, Screen, SelectBox};
 fn main() {
     let screen = Screen {
         component: vec![
@@ -19,4 +19,10 @@ fn main() {
         ],
     };
     screen.run();
+    let mut post = Post::new();
+
+    post.add_text("what's up Ndeta");
+    assert_eq!("", post.content());
+    post.request_review();
+    assert_eq!("What's up rust", post.content());
 }
